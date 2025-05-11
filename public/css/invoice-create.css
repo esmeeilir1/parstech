@@ -1,86 +1,555 @@
+/* متغیرهای رنگ و سایه */
+:root {
+    /* رنگ‌های اصلی */
+    --primary: #2563eb;
+    --secondary: #3b82f6;
+    --success: #059669;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+    --info: #0891b2;
+
+    /* رنگ‌های خنثی */
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+
+    /* گرادیانت‌ها */
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+    --gradient-success: linear-gradient(135deg, #059669 0%, #34d399 100%);
+    --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    --gradient-danger: linear-gradient(135deg, #dc2626 0%, #f87171 100%);
+
+    /* سایه‌ها */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 6px 12px -2px rgb(0 0 0 / 0.15);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.25);
+
+    /* انیمیشن‌ها */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* تنظیمات پایه */
 body {
-    font-family: 'AnjomanMax', sans-serif;
+    font-family: 'AnjomanMax', 'Vazirmatn', system-ui, sans-serif;
+    background-color: var(--gray-100);
+    color: var(--gray-800);
+    line-height: 1.5;
+}
+
+/* لایه‌بندی اصلی */
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* سایدبار */
+.sidebar {
+    width: 280px;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-lg);
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 50;
+    padding: 1.5rem;
+    transition: transform var(--transition-normal);
+}
+
+.sidebar h3 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+    gap: 0.75rem;
+}
+
+.sidebar nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-4px);
+}
+
+/* محتوای اصلی */
+.main-content {
+    flex: 1;
+    margin-right: 115px;
+    padding: 2rem;
+    transition: margin-right var(--transition-normal);
+}
+
+/* هدر فاکتور */
+.invoice-header {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.invoice-header h2 {
+    color: var(--gray-800);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* فرم‌ها */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.form-label.required-field::after {
+    content: '*';
+    color: var(--danger);
+    margin-right: 0.25rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--gray-800);
+    background-color: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Select2 کاستوم */
+.select2-container--default .select2-selection--single {
+    height: auto;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    transition: all var(--transition-fast);
+}
+
+.select2-container--default .select2-selection--single:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--primary);
+}
+
+/* جستجوی محصول */
+.product-search-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.product-search-container .form-control {
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 1rem center;
+    background-size: 1.25rem;
 }
 
 .product-list {
     position: absolute;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-    width: 100%;
-    max-height: 300px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-lg);
+    max-height: 400px;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 40;
 }
 
-.product-item {
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-bottom: 1px solid #f0f0f0;
+/* جدول محصولات */
+.table-responsive {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 2rem;
 }
 
-.product-item:hover {
-    background-color: #f9f9f9;
-}
-
-.product-item:last-child {
-    border-bottom: none;
-}
-
-.product-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 6px;
-}
-
-.main-content {
-    margin-right: 115px;
-    transition: margin-right 0.3s;
-}
-.sidebar.collapsed + .main-content {
-    margin-right: 0;
-}
-#productList table {
-    width: 77%;
-    direction: rtl;
-}
-
-#productList th, #productList td {
-    padding: 6px 8px;
-    border: 1px solid #e0e0e0;
-    text-align: center;
-    font-size: 14px;
-}
-
-#productList th {
-    background: #f4f8fb;
-    font-weight: bold;
-}
-#productList tr {
-    cursor: pointer;
-}
-#productList tr:hover {
-    background: #d6f6f7;
-}
-#productList table {
-    font-size: 13px;
-    white-space: nowrap;
+.selected-products-table {
     width: 100%;
-    min-width: 600px;
+    border-collapse: separate;
+    border-spacing: 0;
 }
-#productList {
-    max-width: 100%;
-    overflow-x: auto;
-}
-#productList th,
-#productList td {
-    padding: 4px 8px;
+
+.selected-products-table th,
+.selected-products-table td {
+    padding: 1rem;
     text-align: center;
     vertical-align: middle;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.selected-products-table th {
+    background-color: var(--gray-50);
+    font-weight: 600;
+    color: var(--gray-600);
+    white-space: nowrap;
+}
+
+.selected-products-table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.selected-products-table tbody tr:hover {
+    background-color: var(--gray-50);
+}
+
+/* فلکس باکس برای مبالغ و تخفیفات */
+.invoice-summary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* پنل مبالغ */
+.amounts-panel {
+    grid-column: span 2;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.amount-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.amount-row:last-child {
+    border-bottom: none;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* پنل تخفیف و مالیات */
+.discount-tax-panel {
+    grid-column: span 3;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 1rem;
+}
+
+.discount-tax-panel .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* دکمه‌ها */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-success {
+    background: var(--gradient-success);
+    color: white;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-danger {
+    background: var(--gradient-danger);
+    color: white;
+}
+
+.btn i {
+    margin-left: 0.5rem;
+    font-size: 1.1em;
+}
+
+/* اسکرول‌بار زیبا */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-400);
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-list {
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* افکت‌های هاور */
+.hover-scale {
+    transition: transform var(--transition-fast);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* نشانگرهای وضعیت */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px;
+}
+
+.badge-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.badge-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* تولتیپ‌ها */
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gray-900);
+    color: white;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* اسپینر لودینگ */
+.loading-spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--gray-200);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* پیام‌های خطا و موفقیت */
+.error-message {
+    color: var(--danger);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.success-message {
+    color: var(--success);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* اینپوت‌های عددی با واحد */
+.number-input {
+    position: relative;
+}
+
+.number-input input {
+    padding-left: 3rem;
+}
+
+.number-input .unit {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-500);
+    font-size: 0.875rem;
+}
+
+/* رسپانسیو */
+@media (max-width: 1280px) {
+    .invoice-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .amounts-panel,
+    .discount-tax-panel {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .main-content {
+        margin-right: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-right: 0;
+    }
+
+    .invoice-header {
+        padding: 1.5rem;
+    }
+
+    .discount-tax-panel {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+/* تنظیمات چاپ */
+@media print {
+    .sidebar,
+    .product-search-container,
+    .btn {
+        display: none;
+    }
+
+    .main-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .invoice-header {
+        box-shadow: none;
+    }
+
+    .table-responsive {
+        box-shadow: none;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
 }

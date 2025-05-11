@@ -28,4 +28,10 @@ public function getNextNumber()
     }
     return response()->json(['number' => "invoices-$next"]);
 }
+public function pdf($id)
+{
+    $invoice = Invoice::with(['items.product', 'customer'])->findOrFail($id);
+    $pdf = \PDF::loadView('invoices.show', compact('invoice'));
+    return $pdf->stream('invoice-'.$invoice->number.'.pdf');
+}
 }

@@ -160,6 +160,6 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 Route::get('/api/sellers/list', [App\Http\Controllers\SellerController::class, 'list'])->name('sellers.list');
-    Route::get('/api/products/search', [App\Http\Controllers\ProductController::class, 'search'])->name('products.search');
-
+Route::get('/api/products/search', [App\Http\Controllers\ProductController::class, 'search'])->name('products.search');
+Route::get('/invoices/{id}/pdf', [\App\Http\Controllers\InvoiceController::class, 'pdf'])->name('invoices.pdf');
 require __DIR__.'/auth.php';
