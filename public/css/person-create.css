@@ -1,0 +1,328 @@
+/* متغیرهای رنگ */
+:root {
+    --primary-color: #4158d0;
+    --secondary-color: #c850c0;
+    --success-color: #0abf30;
+    --danger-color: #ff4757;
+    --warning-color: #ffab00;
+    --info-color: #00d2d3;
+    --dark-color: #2f3542;
+    --light-color: #f1f2f6;
+    --border-color: #e9ecef;
+    --tab-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* رنگ‌های تب‌ها */
+:root {
+    --tab-main-info: linear-gradient(45deg, #4158d0, #c850c0);
+    --tab-general-info: linear-gradient(45deg, #00b09b, #96c93d);
+    --tab-address-info: linear-gradient(45deg, #ff5f6d, #ffc371);
+    --tab-contact-info: linear-gradient(45deg, #2193b0, #6dd5ed);
+    --tab-bank-info: linear-gradient(45deg, #834d9b, #d04ed6);
+    --tab-date-info: linear-gradient(45deg, #373b44, #4286f4);
+}
+
+/* استایل‌های پایه */
+body {
+    font-family: Vazir, Tahoma, sans-serif;
+    background-color: var(--light-color);
+}
+
+.container-fluid {
+    padding: 2rem;
+}
+
+/* نوار تب‌ها */
+.nav-tabs {
+    border: none;
+    background: #fff;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--tab-shadow);
+    display: flex;
+    gap: 0.5rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 1000;
+}
+
+.nav-item {
+    flex: 1;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+    color: var(--dark-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* رنگ‌های تب فعال */
+.nav-tabs .nav-link.active[href="#main-info"] { background: var(--tab-main-info); }
+.nav-tabs .nav-link.active[href="#general-info"] { background: var(--tab-general-info); }
+.nav-tabs .nav-link.active[href="#address-info"] { background: var(--tab-address-info); }
+.nav-tabs .nav-link.active[href="#contact-info"] { background: var(--tab-contact-info); }
+.nav-tabs .nav-link.active[href="#bank-info"] { background: var(--tab-bank-info); }
+.nav-tabs .nav-link.active[href="#date-info"] { background: var(--tab-date-info); }
+
+/* محتوای تب */
+.tab-content {
+    margin-top: 2rem;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* کارت‌ها */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--tab-shadow);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    border: none;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* رنگ‌بندی هدر کارت‌ها */
+.card-header.main-info { background: var(--tab-main-info); color: #fff; }
+.card-header.general-info { background: var(--tab-general-info); color: #fff; }
+.card-header.address-info { background: var(--tab-address-info); color: #fff; }
+.card-header.contact-info { background: var(--tab-contact-info); color: #fff; }
+.card-header.bank-info { background: var(--tab-bank-info); color: #fff; }
+.card-header.date-info { background: var(--tab-date-info); color: #fff; }
+
+/* فرم‌ها */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.required-field::after {
+    content: '*';
+    color: var(--danger-color);
+    margin-right: 4px;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(65, 88, 208, 0.25);
+}
+
+/* سوییچ کد حسابداری */
+.accounting-code-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background: var(--tab-main-info);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* حساب‌های بانکی */
+.bank-account-row {
+    background: var(--light-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    border: 2px solid var(--border-color);
+}
+
+/* Select2 سفارشی‌سازی */
+.select2-container--default .select2-selection--single {
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    height: calc(1.5em + 1.5rem + 4px);
+    padding: 0.75rem 1rem;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: normal;
+    padding: 0;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تقویم شمسی */
+.datepicker-plot-area {
+    font-family: inherit;
+    border-radius: 15px;
+    box-shadow: var(--tab-shadow);
+}
+
+.datepicker-plot-area .datepicker-day-view .table-days td.selected span {
+    background: var(--tab-main-info);
+}
+
+/* دکمه‌ها */
+.form-actions {
+    position: sticky;
+    bottom: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: var(--tab-shadow);
+    z-index: 1000;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--tab-main-info);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background: #fff;
+    border: 2px solid var(--border-color);
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0.5rem;
+    }
+
+    .nav-tabs .nav-link {
+        white-space: nowrap;
+        padding: 0.75rem 1rem;
+    }
+
+    .container-fluid {
+        padding: 1rem;
+    }
+
+    .card-header {
+        padding: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+.select2-container--default .select2-selection--single {
+    direction: rtl;
+    text-align: right;
+}
+.select2-results__option { text-align: right; }

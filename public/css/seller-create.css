@@ -1,0 +1,74 @@
+/* رنگ‌های اصلی */
+:root {
+    --seller-primary: #2e86de;
+    --seller-secondary: #48dbfb;
+    --seller-accent: #f9ca24;
+    --seller-danger: #ee5253;
+    --seller-bg: #f8f9fa;
+}
+
+/* فرم فروشنده */
+.seller-create-form .nav-tabs {
+    border: none;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+    display: flex;
+    gap: 0.5rem;
+}
+.seller-create-form .nav-link {
+    border: none;
+    padding: 1rem;
+    color: var(--seller-primary);
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.seller-create-form .nav-link.active {
+    background: var(--seller-primary);
+    color: #fff;
+}
+.seller-create-form .tab-pane {
+    margin-top: 2rem;
+}
+
+.seller-create-form .img-thumbnail {
+    border: 3px solid var(--seller-secondary);
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(46,134,222,0.10);
+}
+
+.seller-create-form .form-group label {
+    font-weight: bold;
+    color: var(--seller-primary);
+}
+
+.seller-create-form .form-control:focus {
+    border-color: var(--seller-accent);
+    box-shadow: 0 0 0 0.1rem var(--seller-secondary);
+}
+
+.seller-create-form .btn-primary {
+    background: var(--seller-primary);
+    border-color: var(--seller-primary);
+}
+.seller-create-form .btn-primary:hover {
+    background: var(--seller-accent);
+    border-color: var(--seller-accent);
+    color: #222;
+}
+
+.seller-create-form .btn-danger {
+    background: var(--seller-danger);
+    border-color: var(--seller-danger);
+}
+/* حساب بانکی */
+.seller-create-form .bank-account-row {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(200,200,200,0.09);
+}

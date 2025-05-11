@@ -1,0 +1,22 @@
+.img-thumbnail, .img-fluid {
+    border: 2px solid #ddd;
+    background: #fff;
+}
+.list-group-item b {
+    color: #0d6efd;
+}
+.tree-list {
+    direction: rtl;
+    padding-right: 20px;
+}
+.tree-list ul {
+    margin-right: 20px;
+    list-style-type: square;
+}
+.card-header.bg-info {
+    background: linear-gradient(90deg, #19a7ce, #146c94) !important;
+}
+video {
+    box-shadow: 0 2px 12px #0002;
+    border-radius: 8px;
+}

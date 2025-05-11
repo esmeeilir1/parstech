@@ -1,0 +1,93 @@
+body {
+    background: linear-gradient(120deg, #e0eafc, #cfdef3);
+    font-family: 'Vazir', Tahoma, sans-serif;
+    direction: rtl;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    padding: 2.5rem 2rem;
+    width: 350px;
+    max-width: 90vw;
+    margin: 2rem auto;
+    position: relative;
+}
+.auth-container h2 {
+    text-align: center;
+    color: #22356f;
+    margin-bottom: 2rem;
+}
+.input-group {
+    margin-bottom: 1.5rem;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #23395d;
+    font-weight: bold;
+}
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #b8c6db;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f4f8fb;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.input-group input:focus {
+    border-color: #40517c;
+}
+.remember {
+    display: flex;
+    align-items: center;
+}
+.remember label {
+    margin: 0 0.4rem 0 0;
+    font-size: 0.95rem;
+}
+.btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: #23395d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 1rem;
+}
+.btn:hover {
+    background: #40517c;
+}
+.footer-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+.footer-link a {
+    color: #23395d;
+    text-decoration: none;
+    font-size: 0.98rem;
+    transition: color 0.2s;
+}
+.footer-link a:hover {
+    color: #40517c;
+}
+.error {
+    color: #e74c3c;
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+    display: block;
+    text-align: right;
+}

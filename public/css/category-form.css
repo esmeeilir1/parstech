@@ -1,0 +1,40 @@
+/* category-form.css */
+
+.category-form {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+    padding: 22px 18px 18px 18px;
+    margin-bottom: 24px;
+}
+
+.category-form label {
+    display: block;
+    margin-bottom: 7px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.category-form input,
+.category-form textarea,
+.category-form select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 17px;
+    font-size: 1rem;
+}
+.category-form button {
+    background: #0069d9;
+    color: #fff;
+    border: none;
+    padding: 9px 30px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.category-form button:hover {
+    background: #0053ad;
+}

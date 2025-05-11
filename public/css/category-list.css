@@ -1,0 +1,78 @@
+.category-list-container {
+    max-width: 1000px;
+    margin: 40px auto !important;
+    padding: 0 10px;
+}
+.category-list-header {
+    background: #232d3b;
+    color: #fff;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 2px 8px #232d3b24;
+    padding: 18px 24px;
+}
+.category-list-body {
+    background: #f7fafd;
+    border-radius: 0 0 18px 18px;
+    min-height: 350px;
+    padding: 26px 18px 18px 18px;
+}
+.category-table th,
+.category-table td {
+    vertical-align: middle;
+}
+.category-table th {
+    background: #e0e6ef;
+    color: #232d3b;
+    font-weight: bold;
+    font-size: 1.03rem;
+    border-top: none;
+    border-bottom: 2px solid #d5d9e0;
+}
+.category-table tr.main-category-row {
+    background: #fff;
+    border-bottom: 2px solid #f1f1f1;
+}
+.category-table tr.main-category-row:hover {
+    background: #e3f2fd;
+}
+.category-sub-list {
+    margin: 0;
+    padding-right: 0;
+    list-style: none;
+}
+.category-sub-list li {
+    background: #f2f8fd;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    padding: 5px 7px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.category-sub-list .sub-title {
+    font-weight: 500;
+    color: #1565c0;
+    margin-left: 4px;
+}
+.badge.bg-type-person { background: #1a73e8 !important; color: #fff !important; }
+.badge.bg-type-product { background: #388e3c !important; color: #fff !important; }
+.badge.bg-type-service { background: #fbc02d !important; color: #232d3b !important; }
+.btn-outline-primary, .btn-outline-danger {
+    transition: background 0.18s, color 0.18s, border 0.18s;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background: #1a73e8;
+    color: #fff;
+    border-color: #1a73e8;
+}
+.btn-outline-danger:hover, .btn-outline-danger:focus {
+    background: #e53935;
+    color: #fff;
+    border-color: #e53935;
+}
+@media (max-width: 700px) {
+    .category-list-container { margin: 12px auto !important; }
+    .category-list-header { font-size: 1.05rem; }
+    .category-table th, .category-table td { font-size: 0.93rem; }
+    .category-table td { padding: 9px 6px; }
+}

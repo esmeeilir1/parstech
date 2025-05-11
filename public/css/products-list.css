@@ -1,0 +1,43 @@
+/* فقط استایل جدول و تب‌ها، بدون هیچ استایل برای .sidebar یا body */
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+.table th {
+    background: #e7eaf6;
+    font-weight: bold;
+}
+.table-hover tbody tr:hover {
+    background-color: #f7f8fa;
+}
+.badge-success {
+    background: #28a745 !important;
+    color: #fff;
+}
+.badge-danger {
+    background: #dc3545 !important;
+    color: #fff;
+}
+.card-header .nav-tabs.big-tabs {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.nav-tabs.big-tabs .nav-link {
+    font-size: 1.3rem;
+    padding: 1rem 2.5rem;
+    color: #007bff;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-tabs.big-tabs .nav-link.active {
+    background: #007bff;
+    color: #fff !important;
+    border-radius: 0.5rem 0.5rem 0 0;
+    box-shadow: 0 2px 8px #b3b3b3;
+}
+.nav-tabs.big-tabs .nav-link:not(.active):hover {
+    background: #e7eaf6;
+    color: #007bff;
+}

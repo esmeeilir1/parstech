@@ -1,0 +1,217 @@
+@import url('/fonts/fonts.css');
+
+/* ==== پایه سایدبار ==== */
+.main-sidebar {
+  background: linear-gradient(120deg, #23272f 60%, #2563eb 100%);
+  min-height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  border-left: 1.5px solid #e7eaf3;
+  box-shadow: 2px 0 24px rgba(44,62,80,0.09);
+  z-index: 1040;
+  transition: width .23s cubic-bezier(.4,0,.2,1);
+  direction: rtl;
+}
+
+@media (max-width: 991px) {
+  .main-sidebar {
+    width: 210px;
+    min-width: 150px;
+  }
+}
+
+/* برند */
+.brand-link {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg,#23272f 70%,#2563eb 100%);
+  color: #e7f3ff !important;
+  font-weight: bold;
+  font-size: 1.15rem;
+  border-bottom: 2px solid #2563eb20;
+  letter-spacing: 0.02em;
+  padding: 0.9rem 1.2rem;
+  text-decoration: none;
+}
+.brand-link .brand-image {
+  margin-left: .8rem;
+  margin-right: .2rem;
+  max-height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px #2563eb30;
+}
+
+.brand-link:hover {
+  color: #fff !important;
+  background: linear-gradient(90deg,#2563eb 70%,#23272f 100%);
+}
+
+/* پنل کاربر */
+.sidebar .user-panel {
+  background: rgba(37,99,235,0.09);
+  border-radius: 12px;
+  margin: 16px 9px 19px 9px;
+  box-shadow: 0 1px 8px 0 #2563eb17;
+  border-bottom: none;
+  padding: 0.6rem 0.3rem;
+  display: flex;
+  align-items: center;
+}
+.sidebar .user-panel .image img {
+  border: 2.2px solid #2563eb;
+  background: #e4f0ff;
+  box-shadow: 0 2px 12px -7px #2563eb33;
+  height: 2.3rem;
+  width: 2.3rem;
+  object-fit: cover;
+}
+.sidebar .user-panel .info {
+  padding: 0 0.7rem 0 0.2rem;
+}
+.sidebar .user-panel .info a {
+  color: #222e3c;
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+/* ==== منو اصلی ==== */
+.sidebar .nav-sidebar {
+  margin-top: 0.7rem;
+}
+.sidebar .nav-item {
+  margin-bottom: 2px;
+}
+
+.sidebar .nav-link {
+  border-radius: 9px;
+  margin: 6px 10px;
+  color: #dde6f6;
+  font-size: 1.07rem;
+  font-weight: 500;
+  transition: background .17s, color .17s, box-shadow .18s;
+  box-shadow: none;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  padding: 0.7rem 1.2rem 0.7rem 1.5rem;
+  position: relative;
+  text-decoration: none;
+  border: none;
+}
+.sidebar .nav-link .nav-icon {
+  font-size: 1.28rem;
+  width: 2rem;
+  color: #b1d0fe;
+  text-align: center;
+  margin-left: 0.3rem;
+  transition: color .15s;
+}
+.sidebar .nav-link .right {
+  color: #7ea7f9;
+  transition: transform .2s;
+  margin-right: auto;
+  margin-left: 0.5rem;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:focus,
+.sidebar .nav-link:hover {
+  background: linear-gradient(90deg, #2563eb 60%, #4f8cff 100%);
+  color: #fff !important;
+  box-shadow: 0 2px 18px -7px #2563eb33;
+  font-weight: bold;
+}
+.sidebar .nav-link.active .nav-icon,
+.sidebar .nav-link:hover .nav-icon {
+  color: #fff;
+}
+.sidebar .nav-item.menu-open > .nav-link > .right {
+  transform: rotate(-90deg);
+  color: #fff;
+}
+
+/* ==== زیرمنوها با افکت آرام باز شدن ==== */
+.sidebar .nav-treeview {
+  background: rgba(255,255,255,0.01);
+  margin-top: 2px;
+  margin-bottom: 3px;
+  border-radius: 0 0 8px 8px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.25s cubic-bezier(.4,0,.2,1), padding 0.3s;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.sidebar .menu-open > .nav-treeview {
+  opacity: 1;
+  max-height: 800px; /* بزرگ‌ترین زیرمنوی ممکن */
+  padding-top: 4px;
+  padding-bottom: 6px;
+  transition: max-height 0.55s cubic-bezier(.4,0,.2,1), opacity 0.28s cubic-bezier(.4,0,.2,1), padding 0.4s;
+}
+
+.sidebar .nav-treeview .nav-item {
+  margin-bottom: 1px;
+}
+.sidebar .nav-treeview > .nav-item > .nav-link {
+  background: rgba(255,255,255,0.06);
+  margin: 2px 18px 2px 10px;
+  border-radius: 7px;
+  font-size: 0.99rem;
+  color: #b9caf0;
+  font-weight: 400;
+  padding-right: 2.3rem;
+  padding-left: 0.6rem;
+  box-shadow: none;
+  text-align: right;
+  letter-spacing: 0.01em;
+}
+.sidebar .nav-treeview > .nav-item > .nav-link.active,
+.sidebar .nav-treeview > .nav-item > .nav-link:hover {
+  background: linear-gradient(90deg, #2563eb 60%, #4f8cff 100%);
+  color: #fff;
+  font-weight: bold;
+}
+.sidebar .nav-treeview .nav-icon {
+  font-size: 1.09rem;
+  color: #b9c1d5;
+}
+.sidebar .nav-treeview > .nav-item > .nav-link.active .nav-icon,
+.sidebar .nav-treeview > .nav-item > .nav-link:hover .nav-icon {
+  color: #fff;
+}
+
+/* ==== اسکرول سفارشی ==== */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #2563eb44;
+  border-radius: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #2563eb99;
+}
+
+/* ==== واکنش‌گرایی ==== */
+@media (max-width: 575.98px) {
+  .main-sidebar { width: 96vw; min-width: 0; }
+  .brand-link { font-size: 1rem; }
+  .sidebar .user-panel { margin: 7px 2px 7px 2px; }
+  .sidebar { font-size: 0.94rem; }
+}
+
+/* افکت‌های جزئی */
+.sidebar .nav-link:active {
+  box-shadow: 0 0 0 2px #2563eb22;
+}
+.sidebar .nav-link:after {
+  display: none;
+}
