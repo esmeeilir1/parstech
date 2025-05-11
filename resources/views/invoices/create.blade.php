@@ -178,10 +178,12 @@
 
                     <!-- تخفیف و مالیات -->
                     <div class="discount-tax-section">
+
+
                         <div class="form-group">
-                            <label for="discount_percent">درصد تخفیف</label>
-                            <input type="number" id="discount_percent" name="discount_percent"
-                                   class="form-control" min="0" max="100" step="0.01" value="{{ old('discount_percent', 0) }}">
+                            <label for="tax_percent">درصد مالیات</label>
+                            <input type="number" id="tax_percent" name="tax_percent"
+                                   class="form-control" min="0" max="100" step="0.01" value="{{ old('tax_percent', 0) }}">
                         </div>
                         <div class="form-group">
                             <label for="discount_amount">مبلغ تخفیف</label>
@@ -189,26 +191,28 @@
                                    class="form-control" min="0" step="1" value="{{ old('discount_amount', 0) }}">
                         </div>
                         <div class="form-group">
-                            <label for="tax_percent">درصد مالیات</label>
-                            <input type="number" id="tax_percent" name="tax_percent"
-                                   class="form-control" min="0" max="100" step="0.01" value="{{ old('tax_percent', 0) }}">
+                            <label for="discount_percent">درصد تخفیف</label>
+                            <input type="number" id="discount_percent" name="discount_percent"
+                                   class="form-control" min="0" max="100" step="0.01" value="{{ old('discount_percent', 0) }}">
                         </div>
                     </div>
 
                     <!-- نمایش مجموع -->
                     <div class="amount-section">
                         <div class="amount-row">
-                            <span>جمع کل:</span>
-                            <span><span id="totalAmount">۰</span> ریال</span>
+                            <span>مالیات:</span>
+                            <span><span id="taxAmount">۰</span> ریال</span>
                         </div>
                         <div class="amount-row">
                             <span>تخفیف:</span>
                             <span><span id="discountAmount">۰</span> ریال</span>
                         </div>
                         <div class="amount-row">
-                            <span>مالیات:</span>
-                            <span><span id="taxAmount">۰</span> ریال</span>
+                            <span>جمع کل:</span>
+                            <span><span id="totalAmount">۰</span> ریال</span>
                         </div>
+
+
                         <div class="amount-row">
                             <span>مبلغ نهایی:</span>
                             <span><span id="finalAmount">۰</span> ریال</span>

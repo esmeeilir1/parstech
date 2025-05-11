@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,7 +31,6 @@ class InvoiceController extends Controller
         return response()->json(['number' => "invoices-$next"]);
     }
 
-    // متد ذخیره فاکتور جدید
     public function store(Request $request)
     {
         $request->validate([
@@ -53,7 +53,7 @@ class InvoiceController extends Controller
 
         DB::beginTransaction();
         try {
-            // محاسبات تخفیف و مالیات
+            // محاسبه مبلغ‌ها
             $items = [];
             $total = 0;
             foreach ($request->products as $id => $row) {
@@ -90,10 +90,9 @@ class InvoiceController extends Controller
                 'tax_amount'       => $tax_amount,
                 'total' => $total,
                 'final_amount' => $final_amount,
-                // فیلدهای دیگر در صورت نیاز
             ]);
 
-            // ذخیره ردیف‌های فاکتور
+            // ذخیره ردیف‌های فاکتور و کم کردن موجودی انبار
             foreach ($items as $item) {
                 InvoiceItem::create([
                     'invoice_id' => $invoice->id,
@@ -101,6 +100,12 @@ class InvoiceController extends Controller
                     'price'      => $item['price'],
                     'qty'        => $item['qty'],
                 ]);
+                // کم کردن موجودی انبار
+                $product = Product::find($item['product_id']);
+                if ($product) {
+                    $product->stock = max(0, $product->stock - $item['qty']);
+                    $product->save();
+                }
             }
 
             DB::commit();
@@ -110,5 +115,12 @@ class InvoiceController extends Controller
             DB::rollBack();
             return back()->withErrors(['error' => 'خطا در ثبت فاکتور، لطفا دوباره تلاش کنید. ' . $e->getMessage()]);
         }
+    }
+
+    // اگر متد show نداری حتما اضافه کن تا فاکتور نمایش داده شود
+    public function show($id)
+    {
+        $invoice = Invoice::with(['items.product', 'customer'])->findOrFail($id);
+        return view('invoices.show', compact('invoice'));
     }
 }
