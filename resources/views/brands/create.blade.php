@@ -9,14 +9,20 @@
     <form action="{{ route('brands.store') }}" method="POST" enctype="multipart/form-data" class="card p-4">
         @csrf
         <div class="mb-3">
-            <label class="form-label">نام برند <span class="text-danger">*</span></label>
+            <label class="form-label">
+                نام برند <span class="text-danger">*</span>
+            </label>
             <input type="text" name="name" class="form-control" required value="{{ old('name') }}">
         </div>
         <div class="mb-3">
-            <label class="form-label">تصویر برند</label>
+            <label class="form-label">
+                تصویر برند
+            </label>
             <input type="file" name="image" class="form-control" accept="image/*">
         </div>
-        <button class="btn btn-success">ثبت برند</button>
+        <button class="btn btn-success">
+            ثبت برند
+        </button>
     </form>
 </div>
 @endsection

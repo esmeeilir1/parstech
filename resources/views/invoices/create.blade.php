@@ -162,20 +162,40 @@
                             <th>حذف</th>
                         </tr>
                     </thead>
+
                     <tbody id="selectedProducts"></tbody>
+
+                    <div class="row">
+  <div class="col-md-2">
+    <label>درصد تخفیف</label>
+    <input type="number" id="discount_percent" name="discount_percent" class="form-control" min="0" max="100" step="0.01">
+  </div>
+  <div class="col-md-2">
+    <label>مبلغ تخفیف</label>
+    <input type="number" id="discount_amount" name="discount_amount" class="form-control" min="0" step="1">
+  </div>
+  <div class="col-md-2">
+    <label>درصد مالیات</label>
+    <input type="number" id="tax_percent" name="tax_percent" class="form-control" min="0" max="100" step="0.01">
+  </div>
+</div>
                     <tfoot>
                         <tr>
-                            <td colspan="7">جمع کل:</td>
-                            <td colspan="2"><span id="totalAmount">0</span> ریال</td>
-                        </tr>
-                        <tr>
-                            <td colspan="7">تخفیف:</td>
-                            <td colspan="2"><span id="discountAmount">0</span> ریال</td>
-                        </tr>
-                        <tr>
-                            <td colspan="7">مبلغ نهایی:</td>
-                            <td colspan="2"><strong><span id="finalAmount">0</span> ریال</strong></td>
-                        </tr>
+                        <td colspan="7">جمع کل:</td>
+                        <td colspan="2"><span id="totalAmount">۰</span> ریال</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7">تخفیف:</td>
+                        <td colspan="2"><span id="discountAmount">۰</span> ریال</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7">مالیات:</td>
+                        <td colspan="2"><span id="taxAmount">۰</span> ریال</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7">مبلغ نهایی:</td>
+                        <td colspan="2"><strong><span id="finalAmount">۰</span> ریال</strong></td>
+                    </tr>
                     </tfoot>
                 </table>
             </div>
